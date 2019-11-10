@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Server side rendering project",
   "main": "index.js",
-  "scripts": {},
-  "author": "",
+  "scripts": {
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "dev:build:server": "webpack --config ./webpack.server.js --watch"
+  },
+  "author": "mbing",
   "license": "ISC",
   "dependencies": {
     "axios": "0.16.2",
