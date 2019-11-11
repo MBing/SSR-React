@@ -7,5 +7,5 @@ import { Routes } from "./Routes";
 // you use `.hydrate` to optimize/bind all handlers to the already existing stuff
 ReactDOM.hydrate(
     <BrowserRouter>
-        <Routes/>
+        <Routes />
     </BrowserRouter>, document.querySelector('#root'));

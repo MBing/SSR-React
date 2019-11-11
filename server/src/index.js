@@ -5,8 +5,8 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.send(renderer);
+app.get('*', (req, res) => {
+  res.send(renderer(req));
 });
 
 const PORT = process.env.PORT || 3000;
