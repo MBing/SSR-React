@@ -5,9 +5,11 @@ import { fetchUsers } from '../actions';
 class UsersListContainer extends Component {
   componentDidMount() {
     this.props.fetchUsers()
+    
   }
 
   renderUsers() {
+    console.log(this.props.users);
     return (
       <ul>
         this.props.users.map(user => (<li key={user.id}>{user.name}</li>))
