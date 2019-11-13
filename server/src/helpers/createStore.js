@@ -1,8 +1,9 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore as cS } from 'redux';
 import thunk from 'redux-thunk';
+import { reducers } from '../client/reducers';
 
 const createStore = () => {
-  const store = createStore(reducers, {}, applyMiddleware(thunk));
+  const store = cS(reducers, {}, applyMiddleware(thunk));
 
   return store;
 };
