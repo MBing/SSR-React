@@ -31,5 +31,9 @@ const mapStateToProps = state => ({
   users: state.users,
 });
 
+const loadData = (store) => {
+  return store.dispatch(fetchUsers());
+}
+
 const UsersList = connect(mapStateToProps, { fetchUsers })(UsersListContainer);
-export { UsersList };
+export { UsersList, loadData };
