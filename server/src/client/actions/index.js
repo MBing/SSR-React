@@ -1,4 +1,4 @@
-import { AxiosInstance as axios } from "axios";
+import { AxiosInstance as axios } from 'axios';
 
 const FETCH_USERS = 'FETCH_USERS';
 
