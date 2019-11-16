@@ -16,7 +16,7 @@ const renderer = (req, store) => {
     </Provider>
   );
   
-  return (
+  return `
     <html>
       <head></head>
       <body>
@@ -24,7 +24,7 @@ const renderer = (req, store) => {
         <script src="./bundle.js"></script>
       </body>
     </html>
-  );
+  `;
 };
 
 export { renderer };
