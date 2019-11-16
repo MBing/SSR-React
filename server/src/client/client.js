@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 import { reducers } from './reducers';
 import { Routes } from './Routes';
 
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
 
 // Regular apps use `.render`, but as this already was rendered by the server
 // you use `.hydrate` to optimize/bind all handlers to the already existing stuff
