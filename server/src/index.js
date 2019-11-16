@@ -29,7 +29,15 @@ app.get('*', (req, res) => {
   });
 
   Promise.all(pendingRequests)
-    .then(() => res.send(renderer(req, store)))
+    .then(() => {
+      const context = {}; // use for redirects and error handling
+      const content = renderer(req, store, context);
+
+      if (context.notFound) {
+        res.status(404);
+      }
+      res.send(content);
+    })
     .catch(err => console.error(err));
 });
 

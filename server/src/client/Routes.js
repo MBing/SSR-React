@@ -1,6 +1,7 @@
 import React from 'react';
-import App from './App'
+import App from './App';
 import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
 import UsersListPage from './pages/UsersListPage';
 
 const Routes = [
@@ -15,6 +16,9 @@ const Routes = [
       {
         path: '/users',
         ...UsersListPage,
+      },
+      {
+        ...NotFoundPage,
       },
     ],
   },
