@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HeaderContainer = ({ auth }) => {
+  console.log('auth', auth)
   // This is a call for the browser, not only inside the app, so proper use of a.href iso Link
   const authButton = auth ? (
     <a href="/api/logout">Logout</a>

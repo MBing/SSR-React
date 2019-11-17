@@ -26,6 +26,12 @@ app.get('*', (req, res) => {
   // load data into the store
   const pendingRequests = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
+  }).map(promise => {
+      if (promise) {
+          return new Promise(((resolve, reject) => {
+              return promise.then(resolve).catch(resolve)
+          }))
+      }
   });
 
   Promise.all(pendingRequests)
@@ -33,6 +39,9 @@ app.get('*', (req, res) => {
       const context = {}; // use for redirects and error handling
       const content = renderer(req, store, context);
 
+      if (context.url) {
+          return res.redirect(301, context.url);
+      }
       if (context.notFound) {
         res.status(404);
       }
