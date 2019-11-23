@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
