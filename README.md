@@ -25,3 +25,6 @@ This repo has a small application to demonstrate the use of SSR with React. The 
  - This is a server only for rendering, it is not a good idea to have your api on the same server!
  - You could add another `api` server here and use that for ease of use or host your api elsewhere
  - Update [headers](https://github.com/MBing/SSR-React/blob/master/server/src/index.js#L15) when you want to use another domain than the one you host your api on.
+
+## Error
+ - There is an error shown when running the application which is related to [ComponentWillMount Github Issue Link](https://github.com/nfl/react-helmet/issues/426v)
