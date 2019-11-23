@@ -13,7 +13,7 @@ class UsersList extends Component {
     return (
       <Helmet>
         <title>{`${this.props.users.length} Users Loaded`}</title>
-        <meta property="og:title" content="Users App" />
+        <meta property="og:title" content="Users Page" />
       </Helmet>
     );
   }
@@ -22,7 +22,7 @@ class UsersList extends Component {
     return (
       <div>
         {this.head()}
-        <h1>Users List</h1>
+        <h3>Users List</h3>
         {this.props.users && (
           <RenderList list={this.props.users} type="Users" />
         )}

@@ -10,8 +10,8 @@ const Routes = [
     ...App,
     routes: [
       {
-        path: '/',
         ...HomePage,
+        path: '/',
         exact: true,
       },
       {
@@ -19,8 +19,8 @@ const Routes = [
         path: '/admins',
       },
       {
-        path: '/users',
         ...UsersListPage,
+        path: '/users',
       },
       {
         ...NotFoundPage,
