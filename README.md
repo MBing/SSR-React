@@ -9,3 +9,9 @@ This repo has a small application to demonstrate the use of SSR with React. The 
 ```
   $ yarn dev # inside the `server` folder
 ```
+
+## Improvements
+ - Add spinner on Loading iso text
+ - Add some actual content iso loading from 3rd party api
+ - ...
+ 
