@@ -15,6 +15,7 @@ const requireAuth = ChildComponent => {
       }
     }
   }
+
   const mapStateToProps = ({ auth }) => ({ auth });
 
   return connect(mapStateToProps)(RequireAuth);

@@ -2,35 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAdmins } from '../actions';
 import { requireAuth } from '../components/hocs/requireAuth';
+import { RenderList } from './RenderList';
 
 class AdminsListPage extends Component {
   componentDidMount() {
     this.props.fetchAdmins();
   }
 
-  renderAdmins() {
-    return (
-      <ul>
-        {this.props.admins.map(admin => {
-          return <li key={admin.id}>{admin.name}</li>;
-        })}
-      </ul>
-    );
-  }
-
   render() {
     return (
       <div>
         <h3>Protected List of Admins</h3>
-        {this.renderAdmins()}
+        {this.props.admins && (
+          <RenderList list={this.props.admins} type="Admins" />
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ admins }) => ({
-  admins,
-});
+const mapStateToProps = ({ admins }) => ({ admins });
 
 export default {
   component: connect(mapStateToProps, { fetchAdmins })(

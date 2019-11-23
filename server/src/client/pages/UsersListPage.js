@@ -2,23 +2,11 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
+import { RenderList } from './RenderList';
 
 class UsersList extends Component {
   componentDidMount() {
     this.props.fetchUsers();
-  }
-
-  renderUsers() {
-    if (this.props.users.length === 0) {
-      return null;
-    }
-    return (
-      <ul>
-        {this.props.users.map(user => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
-    );
   }
 
   head() {
@@ -35,18 +23,17 @@ class UsersList extends Component {
       <div>
         {this.head()}
         <h1>Users List</h1>
-        {this.renderUsers()}
+        {this.props.users && (
+          <RenderList list={this.props.users} type="Users" />
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  users: state.users,
-});
+const mapStateToProps = ({ users }) => ({ users });
 
-const UsersListPage = connect(mapStateToProps, { fetchUsers })(UsersList);
 export default {
-  component: UsersListPage,
+  component: connect(mapStateToProps, { fetchUsers })(UsersList),
   loadData: ({ dispatch }) => dispatch(fetchUsers()),
 };
